@@ -306,11 +306,14 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		searchBySurnameField.setText("");
 		// if Employee is null or ID is 0 do nothing else display Employee
 		// details
-		if (thisEmployee == null) {
-		} else if (thisEmployee.getEmployeeId() == 0) {
-		} else {
+		if (thisEmployee == null || thisEmployee.getEmployeeId() == 0) 
+		{
+		} 
+		else 
+		{
 			// find corresponding gender combo box value to current employee
-			while (!found && countGender < gender.length - 1) {
+			while (!found && countGender < gender.length - 1) 
+			{
 				if (Character.toString(thisEmployee.getGender()).equalsIgnoreCase(gender[countGender]))
 					found = true;
 				else
@@ -349,14 +352,14 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 	// display search by ID dialog
 	private void displaySearchByIdDialog() {
-		if (isSomeoneToDisplay())
+		if (isSomeoneToDisplay())														///////////
 			new SearchByIdDialog(EmployeeDetails.this);
 	}// end displaySearchByIdDialog
 
 	// display search by surname dialog
 	private void displaySearchBySurnameDialog() {
 		if (isSomeoneToDisplay())
-			new SearchBySurnameDialog(EmployeeDetails.this);
+			new SearchBySurnameDialog(EmployeeDetails.this);								////////////////
 	}// end displaySearchBySurnameDialog
 
 	// find byte start in file for first active record
@@ -1004,7 +1007,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				displaySearchByIdDialog();
 		} else if (e.getSource() == searchBySurname) {
 			if (checkInput() && !checkForChanges())
-				displaySearchBySurnameDialog();
+				new SearchSurname_Id(EmployeeDetails.this);
 		} else if (e.getSource() == searchId || e.getSource() == searchByIdField)
 			searchEmployeeById();
 		else if (e.getSource() == searchSurname || e.getSource() == searchBySurnameField)
@@ -1049,7 +1052,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				deleteRecord();
 		} else if (e.getSource() == searchBySurname) {
 			if (checkInput() && !checkForChanges())
-				new SearchBySurnameDialog(EmployeeDetails.this);
+				new SearchSurname_Id(EmployeeDetails.this);
 		}
 	}// end actionPerformed
 
