@@ -41,6 +41,7 @@ public class SearchSurname_Id extends JDialog implements ActionListener
 		setVisible(true);
 	}// end SearchBySurnameDialog
 	
+
 	// initialize search container
 	public Container searchPane() {
 		JPanel searchPanel = new JPanel(new GridLayout(3,1));
@@ -75,6 +76,29 @@ public class SearchSurname_Id extends JDialog implements ActionListener
 		// if option search, search for Employee
 		if(e.getSource() == search)
 		{
+			String temp = searchField.getText();
+			
+			if(temp.matches("[a-zA-Z]+"))
+			{
+				
+				try 
+				{
+				
+					ifsurname();
+			
+				
+				}// end try
+				catch (NumberFormatException num)
+				{
+					// display message and set colour to text field if entry is wrong
+					searchField.setBackground(new Color(255, 150, 150));
+					JOptionPane.showMessageDialog(null, "Wrong ID format!");
+				}// end catch
+			
+				
+				
+			}
+			else
 			
 			try 
 			{
@@ -89,18 +113,6 @@ public class SearchSurname_Id extends JDialog implements ActionListener
 				JOptionPane.showMessageDialog(null, "Wrong ID format!");
 			}// end catch
 			
-			try 
-			{
-				
-				ifsurname();
-			
-				
-			}// end try
-			catch (NumberFormatException num) {
-				// display message and set colour to text field if entry is wrong
-				searchField.setBackground(new Color(255, 150, 150));
-				JOptionPane.showMessageDialog(null, "Wrong ID format!");
-			}// end catch
 			
 			
 			

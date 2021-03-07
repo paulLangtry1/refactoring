@@ -55,6 +55,8 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	private static final DecimalFormat format = new DecimalFormat("\u20ac ###,###,##0.00");
 	// decimal format for active currency text field
 	private static final DecimalFormat fieldFormat = new DecimalFormat("0.00");
+
+
 	// hold object start position in file
 	private long currentByteStart = 0;
 	private RandomFile application = new RandomFile();
